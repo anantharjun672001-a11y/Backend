@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import axios from "axios";
 import dotenv from "dotenv";
+import mongoose from "mongoose";
 
 dotenv.config();
 
@@ -57,6 +58,10 @@ Do not add extra explanation.
     res.status(500).json({ error: "Something went wrong" });
   }
 });
+
+mongoose.connect(process.env.MONGODB_URL)
+  .then(() => console.log("MongoDB Connected"))
+  .catch((err) => console.log(err));
 
 app.listen(3000, () => {
   console.log("Server running on port 3000");
