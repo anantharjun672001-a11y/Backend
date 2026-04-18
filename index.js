@@ -7,7 +7,11 @@ import mongoose from "mongoose";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors(
+  {
+    origin: ["*","https://ai-code-reviewer-blue-six.vercel.app/"],
+  }
+));
 app.use(express.json());
 
 //DB Connect
