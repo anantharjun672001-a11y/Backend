@@ -132,4 +132,6 @@ app.delete("/history/user/:userId", async (req, res) => {
   res.json({ msg: "All deleted" });
 });
 
-app.listen(3000, () => console.log("Server running"));
+app.listen(process.env.PORT || 3000, () => {
+  console.log("Server running");
+});
